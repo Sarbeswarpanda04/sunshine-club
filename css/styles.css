@@ -54,55 +54,67 @@ button{ font: inherit; cursor: pointer; }
 .hero{ 
   position: relative; 
   overflow: clip; 
-  background: radial-gradient(1200px 400px at 50% -20%, rgba(245,158,11,.35), transparent), var(--bg);
-  border-bottom: 1px solid rgba(245,158,11,0.1);
+  background: linear-gradient(to bottom, #fafafa 0%, #f3f4f6 100%);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
 }
 .hero-inner{ 
-  padding: 4rem 0 3rem; 
+  padding: 6rem 1rem 5rem; 
   text-align: center; 
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .hero-title{ 
   font-family: 'Poppins', Inter, sans-serif; 
   font-weight: 800; 
-  font-size: clamp(2.2rem, 5vw, 3.5rem); 
+  font-size: clamp(2.5rem, 6vw, 4rem); 
   margin: 0; 
-  background: linear-gradient(135deg, #9A3412, #DC2626);
+  background: linear-gradient(135deg, #EA580C, #B91C1C, #7C3AED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 4px 12px rgba(154,52,18,0.2);
-  animation: titleGlow 3s ease-in-out infinite alternate;
+  background-size: 200% auto;
+  text-wrap: balance;
+  animation: titleGlow 4s ease-in-out infinite alternate, gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes titleGlow {
-  from { filter: drop-shadow(0 0 8px rgba(245,158,11,0.3)); }
-  to { filter: drop-shadow(0 0 16px rgba(245,158,11,0.5)); }
+  from { filter: drop-shadow(0 0 10px rgba(234, 88, 12, 0.2)); }
+  to { filter: drop-shadow(0 0 25px rgba(124, 58, 237, 0.4)); }
 }
 
 .hero-subtitle{ 
-  margin: 1rem auto 1.5rem; 
-  color: #6B7280; 
-  font-size: 1.125rem;
-  max-width: 600px;
-  line-height: 1.6;
+  margin: 1.5rem auto 2rem; 
+  color: #475569; 
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  max-width: 650px;
+  line-height: 1.7;
+  text-wrap: balance;
 }
-.hero-ctas{ display:flex; gap:.75rem; justify-content:center; flex-wrap: wrap; }
+.hero-ctas{ display:flex; gap:1rem; justify-content:center; flex-wrap: wrap; }
 
 /* Enhanced Buttons */
 .btn{ 
   display: inline-flex; 
   align-items: center; 
   gap: .5rem; 
-  border-radius: 16px; 
-  padding: .8rem 1.5rem; 
+  border-radius: 9999px; 
+  padding: .85rem 1.75rem; 
   border: 2px solid transparent; 
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-  will-change: transform; 
+  will-change: transform, box-shadow; 
   font-weight: 600;
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.5px;
 }
 
 .btn::before {
@@ -121,8 +133,8 @@ button{ font: inherit; cursor: pointer; }
 }
 
 .btn:hover{ 
-  transform: translateY(-3px) scale(1.05); 
-  box-shadow: 0 12px 24px rgba(15,23,42,0.15);
+  transform: translateY(-4px) scale(1.02); 
+  box-shadow: 0 15px 30px -5px rgba(15,23,42,0.2);
 }
 
 .btn-primary{ 
@@ -183,35 +195,39 @@ button{ font: inherit; cursor: pointer; }
 }
 .stat{ 
   text-align: center; 
-  padding: 1rem;
-  background: rgba(255,255,255,0.8);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(245,158,11,0.2);
-  min-width: 120px;
-  transition: transform 0.3s ease;
+  padding: 1.5rem 1rem;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  min-width: 140px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 .stat:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  border-color: rgba(139, 92, 246, 0.4);
 }
 .stat-number{ 
   font-family: 'Poppins', Inter, sans-serif; 
-  font-size: clamp(1.8rem, 4vw, 2.6rem); 
+  font-size: clamp(2rem, 5vw, 3rem); 
   font-weight: 800;
-  background: linear-gradient(135deg, #7C2D12, #DC2626);
+  background: linear-gradient(135deg, #EA580C, #7C3AED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
 }
 
 .stat-label {
-  font-size: 0.9rem;
-  color: #6B7280;
-  font-weight: 600;
+  font-size: 0.85rem;
+  color: #475569;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 /* Enhanced Sunburst */

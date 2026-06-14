@@ -233,6 +233,8 @@ button{ font: inherit; cursor: pointer; }
 /* Parallax & Carousel */
 .hero-carousel{ position:absolute; inset:0; overflow:hidden; z-index:0; opacity:0.15; }
 .carousel-track{ display:flex; height:100%; width:max-content; animation:scroll-carousel 40s linear infinite; }
+.carousel-track:has(img:only-child) { animation:none; width:100%; }
+.carousel-track:has(img:only-child) img { width:100%; }
 .carousel-track img{ height:100%; width:400px; object-fit:cover; flex-shrink:0; }
 @keyframes scroll-carousel{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
 
